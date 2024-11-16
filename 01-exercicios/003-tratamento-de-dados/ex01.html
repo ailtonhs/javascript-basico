@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de numeros</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            
+            
+        }
+        body {
+            background-color: #333;
+        }
+
+        .conteiner {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        label {
+            display: inline-block;
+            padding: 12px 12px 12px 0;
+        }
+
+        input[type=number] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .botao {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+        .botao input {
+            padding: 12px 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="conteiner">
+        <div>
+            <label for="inum">Digite seu salario</label>
+        </div>
+        <div>
+            <div>
+                <input type="number" name="" id="inum">
+            </div>
+        </div>
+
+        <div class="botao">
+            <div>
+                <input type="button" value="Converter" id="converter">
+            </div>
+        </div>
+
+        <div>
+            <p id="res"></p>
+        </div>
+    </div>
+
+    <script>
+        const converter = document.getElementById("converter");
+        converter.addEventListener("click", () => {
+            let inputNumber = document.getElementById("inum");
+            let salario = Number(inputNumber.value);
+            
+
+           
+
+            let res = document.getElementById("res");
+
+            //let salarioEmCasaDecimais = salario.toFixed(2).replace('.', ','); //altera para casa decimais e troca o ponto pela virgula
+
+            
+
+            //res.innerHTML = `${salario.toFixed(2)}`;//converte para casa decimais
+
+            res.innerHTML = `${salario.toLocaleString('pt-BR', {style:"currency", currency: "BRL"})}<br>`; //converte para real brasil
+
+
+            
+
+            
+            
+
+            document.getElementById("inum").value = "";
+        })
+    </script>
+</body>
+</html>
