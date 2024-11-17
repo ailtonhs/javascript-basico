@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Valores</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #333;
+        }
+
+        .conteiner {
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 500px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .conteiner h1 {
+            text-align: center;
+        }
+
+        input[type=number] {
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100px;
+        }
+
+        input[type=button] {
+            padding: 12px 20px;
+            float: right;
+            border-radius: 4px;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteiner">
+        <div>
+            <h1>Somando valores</h1>
+        </div>
+
+        <div>
+            <input type="number" name="num1" id="txtn1"> +
+            <input type="number" name="num2" id="txtn2">
+            <input type="button" value="Somar" id="somaValores">
+
+            <div>
+                <p id="res">Resultado</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tn1 = document.getElementById("txtn1");
+        let tn2 = document.getElementById("txtn2");
+        let somar = document.getElementById("somaValores");
+
+        somar.addEventListener("click", somaVa => {
+            let num1 = Number(tn1.value);
+            let num2 = Number(tn2.value);
+            let soma = num1 + num2;
+
+            let res = document.getElementById("res");
+
+            res.innerHTML = `A soma dos valores ${num1} e ${num2} é igual : ${soma}`;
+
+            document.getElementById("txtn1").value = "";
+            document.getElementById("txtn2").value = "";
+        });
+
+    </script>
+</body>
+</html>
