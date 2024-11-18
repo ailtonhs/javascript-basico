@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        .conteiner {
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 500px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .conteiner h1 {
+            text-align: center;
+        }
+
+        input[type=number] {
+            padding: 12px;
+            width: 100px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=button] {
+            padding: 12px 20px;
+            float: right;
+            background-color: rgb(8, 184, 8);
+            color: #fff;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteiner">
+        <div>
+            <h1>Sistema de multas</h1>
+        </div>
+
+        <div>
+            Velocidade do carro: <input type="number" name="txtvel" id="txtvel"> Km/h
+            <input type="button" value="Verificar" id="vel">
+        </div>
+
+        <div>
+            <p id="res"></p>
+        </div>
+    </div>
+
+    <script>
+        const button = document.getElementById("vel");
+        button.addEventListener("click", MinhaFuncao => {
+            let txtvel = document.getElementById("txtvel");
+            let velocidade = Number(txtvel.value);
+            let res = document.getElementById("res");
+
+            res.innerHTML = `A velocidade atual é ${velocidade}Km/h<br>`;
+
+            if (velocidade > 60) {
+                res.innerHTML += "Você está MULTADO! Por excesso de velocidade <br>";
+            };
+
+            res.innerHTML += "Dirija sempre com cinto de segurança!";
+
+            document.getElementById("txtvel").value = "";
+        });
+
+        
+        
+    </script>
+</body>
+</html>
