@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vamos Contar</title>
+</head>
+
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+
+    <main>
+        <div class="conteiner">
+            <div class="linha">
+                <div class="left-25">
+                    <label for="ini">Inicio</label>
+                </div>
+
+                <div class="left-75">
+                    <input type="number" name="ini" id="ini">
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="left-25">
+                    <label for="fim">Fim</label>
+                </div>
+                <div class="left-75">
+                    <input type="number" name="fim" id="fim">
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="left-25">
+                    <label for="pass">Passo</label>
+                </div>
+                <div class="left-75">
+                    <input type="number" name="pass" id="pass">
+                </div>
+            </div>
+
+            <div class="contar">
+                <button>Contar</button>
+            </div>
+
+            <div>
+                <p id="res">Preparando contagem...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Criando pod <a href="#">Ailton Henrique</a></p>
+    </footer>
+
+    <script>
+
+        const contar = document.querySelectorAll("button")[0];
+        contar.addEventListener("click", comecarContagem => {
+            const inputInicio = document.getElementById("ini");
+            const inputFim = document.getElementById("fim");
+            const inputPasso = document.getElementById("pass");
+
+            
+            if (inputInicio.value === "" || inputFim.value === "" || inputPasso.value === "") {
+                alert("[ERRO]")
+            };
+            
+            let ini = Number(inputInicio.value);
+            let fim = Number(inputFim.value);
+            let passo = Number(inputPasso.value);
+            let res = document.getElementById("res");
+            res.innerHTML = "<p>Contando...</p>"
+
+            if (ini < fim) {
+                for (let contador = ini; contador <= fim; contador += passo) {
+                    res.innerHTML += `Passo "${contador}"`;
+                };
+            } 
+
+            document.getElementById("ini").value = "";
+            document.getElementById("fim").value = "";
+            document.getElementById("pass").value = "";
+
+           
+
+        })
+    </script>
+</body>
+
+</html>
