@@ -28,8 +28,9 @@ header h1 {
     padding: 20px;
     border-radius: 10px;
     width: 90vw;
+    height: 85vh;
     margin: auto;
-    margin-top: 10vw;
+    
 }
 
 .linha::after {
@@ -85,15 +86,13 @@ footer {
     text-align: center;
     font-style: italic;
     font-size: 0.7em;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    
 }
 
 @media screen and (min-width: 768px) {
     .conteiner {
         max-width: 800px;
+        height: 90vh;
     }
 
    

@@ -64,29 +64,45 @@
             const inputInicio = document.getElementById("ini");
             const inputFim = document.getElementById("fim");
             const inputPasso = document.getElementById("pass");
-
-            
-            if (inputInicio.value === "" || inputFim.value === "" || inputPasso.value === "") {
-                alert("[ERRO]")
-            };
-            
-            let ini = Number(inputInicio.value);
-            let fim = Number(inputFim.value);
-            let passo = Number(inputPasso.value);
             let res = document.getElementById("res");
-            res.innerHTML = "<p>Contando...</p>"
 
-            if (ini < fim) {
-                for (let contador = ini; contador <= fim; contador += passo) {
-                    res.innerHTML += `Passo "${contador}"`;
+
+            if (inputInicio.value === "" || inputFim.value === "" || inputPasso.value === "") {
+                alert("[ERRO] Faltam dados!")
+                res.innerHTML = "Impossível contar!"
+            } else {
+
+                let i = Number(inputInicio.value);
+                let f = Number(inputFim.value);
+                let p = Number(inputPasso.value);
+
+                if (p <= 0) {
+                    alert("Passo ínvalido, considerando passo1");
+                    p = 1;
                 };
-            } 
+
+                res.innerHTML = "<p>Contando...</p>"
+
+                if (i < f) {
+                    for (let c = i; c <= f; c += p) {
+                        res.innerHTML += `Passo "${c}" \u{1F449}`;
+                    };
+                } else if (i > f) {
+                    for (let c = i; c >= f; c -= p) {
+                        res.innerHTML += `Passo "${c}" \u{1F449}`;
+                    }
+                }
+                res.innerHTML += `\u{1F3C1}`
+
+            }
+
+
 
             document.getElementById("ini").value = "";
             document.getElementById("fim").value = "";
             document.getElementById("pass").value = "";
 
-           
+
 
         })
     </script>
