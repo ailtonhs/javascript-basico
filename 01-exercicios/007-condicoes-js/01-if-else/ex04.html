@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naturalidade</title>
+    <style>
+        body {
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .conteiner {
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 400px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        input[type=text] {
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=button] {
+            padding: 12px;
+            background-color: rgb(50, 218, 50);
+            border-radius: 4px;
+            border: none;
+            color: #111;
+            cursor: pointer;
+        }
+
+        input[type=button]:hover {
+            background-color: green;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteiner">
+        <div>
+            <label for="pais">Digite Seu país:
+                <input type="text" id="pais"> <input type="button" value="Verificar" id="fverificar">
+            </label>
+        </div>
+
+        <div>
+            <p id="res"></p>
+        </div>
+    </div>
+
+    <script>
+        const button = document.getElementById("fverificar");
+
+        button.addEventListener("click", () => {
+            let pais = document.getElementById("pais").value;
+            let res = document.getElementById("res");
+            
+            if (pais == "") {
+                alert("Digite seu país");
+            } else if (pais.toUpperCase() == "BRASIL") {
+                res.innerHTML = `Vivendo em ${pais}! <br>`;
+                res.innerHTML += "Você é Brasileiro! <br>";
+            } else {
+                res.innerHTML = `Vivendo em ${pais}! <br>`
+                res.innerHTML += "Você é Estrangeiro!"
+            };
+
+            document.getElementById("pais").value = "";
+    
+        });
+    </script>
+</body>
+</html>
